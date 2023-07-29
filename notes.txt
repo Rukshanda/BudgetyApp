@@ -1,0 +1,393 @@
+
+
+
+// lec 12
+
+
+  // adding the button that delete the income and expense
+
+  // we will use event delegation
+
+  // putting the even handeler to the parent of orignal element
+
+  // create a function controll delete item -- we will pass event in this function to
+                                               know what the target element is.... the 
+                                               child of the parent on which we have added
+                                               the evnet listener
+
+  // it will be in our app controller
+
+  // what we want in to this function 
+
+  // to see where the event was first targeted is by using the target property
+
+  // now we are using the parentNode propety... WHY? because we are intrested in the
+     whole item.. because we are gona delete the item not only the targeted element..
+     also we are intrested in the id too..
+
+  // now save it in the variable
+
+
+  // now we want all this event delegation stuff to happen if there is itemID existed
+
+  // now what we are gona do with that id
+
+  // first there is type and than the id 
+  
+
+  // format of id is inc-1 --- example
+
+  // we will use split method that all strings have 
+
+  // store it in variable 
+
+  // splitId = itemId.split('-');
+
+  // split method allows us to split the string in to components
+
+  // now the first element of string is type
+
+  // the second element fo string is id
+
+
+  // now what he had to do list on this part of application
+
+
+      1) delete the item from the data structue
+
+      2) delte the item from the UI
+
+      3) Update and show the new budget
+
+
+
+
+
+
+
+
+
+
+// lec 13
+
+
+  // now to delete the item from the budget controller --- 1st step
+
+   
+    /// Yet another method to loop over an array: map
+
+
+    /// Howto remove elements from an array using the splice method
+
+
+  // create a method deleteItem in budget controller 
+
+   now what we want is 
+
+   to see the type and the id right because every element has its 
+   
+   unique id... we need type and id as a perimater ....  
+
+   ...  
+  
+   as all the ids are not in line 
+   therefore we will create an array 
+   that will have all the ids and than we will check
+   the index of input id and use this information to
+   delete it..
+
+ 
+   ... loop over all the items
+
+   ... we will use map for array it is sam like is forEach
+   .. map returns a brand new array
+   .. we return something and it is store in brand new array
+
+---------- now to find the index ids ....
+ 
+ [1 , 2 , 4 , 5 ] index of 5 is 3
+
+if index actually exists then we want to find the indexOf of ids 
+
+index is here the variable containing the indexOf of ids
+
+now if index is !== -1 
+then 
+we wawnt the allItems[type].splice method
+
+splice(positionNumber , number Of elements we want to delet)
+--------------------------|--------------------------------
+                          |
+                          this is the splice mehtod
+                          two arguments pass in to it 
+                          
+
+
+
+
+
+
+
+
+now use this method in our controllDeleteItem
+
+convert the ID to inteager it is currently a string
+
+
+
+
+
+
+
+
+
+
+
+
+// lec 14 
+
+  .. removing the element from the UI
+
+  .. we are going to create a method in our UI
+
+  .. first we need an id to remove it
+
+  .. the id we have passed in the method is goint to be the entire id
+  .. for example income-1 or whatever
+
+
+  .. we have to remove child method
+  .. we have to first need to move up to see the parent
+
+  .. we will use paerentNode property to move up
+
+  .. and then removeChild
+  .. in removeChild whe have to pass whole element
+
+  .. so first save it in variable
+  .. 
+
+
+
+ now just call it in ctrlDeleteItem
+ 
+
+ now update the method of update the budget();
+
+
+
+
+
+
+ lec # 15 
+
+
+  // Updating the Percentages Controller
+
+  .. percentages are going to be updated when a new income is going to be add
+     or going to be delated for both income and expenses
+
+  .. creating an updatePercentage funciton
+
+   1 : - Calculate percentages
+
+   2:-  Read percentages from the budget Contrller
+
+   3:- Update the UI with the new Percentages
+
+ 
+
+  call it in other two funciton
+
+  in addItem and deleatingitem one in app controller
+
+
+
+
+  .. in our expense and in our income funciotn constructue we 
+     are going to add the protype
+     call it for expenses
+      
+
+  
+
+
+------------------------------------------------------------------------
+  
+
+
+  -- first we have created a method to calcuate the percentage
+  -- then we have created a method to reterive the percentage 
+  -- now to calculate the method for each expense array
+  -- here we only want the exp array 
+  -- to get this method to all the expense item we are going to loop over
+     the items 
+  -- for that we will use forEach method as it gives the property not reterive
+     the new array
+  -- what we want is that for each mehtod should have the calcPercentage method
+  -- now we want the get percentage method on all of the expense items
+  -- now here we note that we need to return the array containg the caclPercentage
+  -- for that we will use map mehtod 
+  -- 
+
+
+   now call the calculatePercentages and getPercentages
+
+
+
+
+
+
+
+ lec # 16 
+
+  
+
+ Updating the percentages in UI
+
+
+
+  how to create our own forEach function but for nodeLists instead of arrays
+  
+   
+  .. as we know we are going to create a metho in our UI controller
+  .. what we will display is percentages
+  .. Where will we display is 
+
+     going to be --- in expenses item there is a class for percentage check in index.html
+  
+ create a variable and store where we want to display these percentags
+
+  we will use querySelectorAll
+  
+now we know that Node list cannot have forEach method
+
+ 
+
+  therefore we are creating our own method for Nodelist ------------ 
+                           
+                  first we have created a variable nodeLIstForEach(you can name whatever you want) contiang a function passing two parameters one is the list and another is callback funtion
+
+                  now what we want is to loop over each nodelist item using for loops 
+                  and than call the callback functtion ------ first class function
+                  
+
+                  now create the callbackfunction 
+
+
+
+
+
+
+
+  // lec # 17 
+
+
+How to get the current date by using the Date object 
+constructor
+
+
+  
+
+
+ creating a method in our displayUI controller
+ 
+ object constructors we will use new 
+     
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////
+
+Formating our numbers
+
+. How to use different String methods to manipulate Strings
+. 
+
+  first we will create a mehtod in our  UIcontroller
+
+  it will have two parameters  the current number and the type
+  weather it is inc or exp
+
+  . first we will ue abs method to remove every sing 
+
+  . by doing this num = Math.abs(num)
+  
+  . and then use toFixed method to display decimal after 2 numbers
+
+  . now we want to put comma if the number is greater than thousand or thousand
+  
+  . using if statment
+  
+
+  . before that split the num 
+
+  now the first Part is th number(inteager) and other is the decimal one
+  
+     
+  now if the frist part is greater than the lenght of 3 than
+  
+
+  there is another method call substr(start , ending position) then the last part after the coma 
+
+
+the another part of splitstring is 
+
+ dec = numSplit[1]
+
+
+
+now check if type is equal to exp than - and if it is 
+inc than + 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
